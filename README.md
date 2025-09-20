@@ -58,7 +58,7 @@ ai-multilingual-student-chatbot/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/<your-username>/ai-multilingual-student-chatbot.git
+git clone https://github.com/Sumangiri123/ai-multilingual-student-chatbot.git
 cd ai-multilingual-student-chatbot
 ```
 
