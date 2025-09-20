@@ -63,3 +63,103 @@ cd ai-multilingual-student-chatbot
 ```
 
 ### 2. Create a virtual environment
+
+```
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+```
+
+### 3. Install dependencies
+
+```
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+```
+
+## 🚀 Usage
+
+### 1. Data Preparation
+
+Place institutional documents (PDFs, handbooks, policies) inside data/raw/.
+
+Run extraction + cleaning scripts (see notebooks/ or src/data_processing/).
+
+### 2. Build Knowledge Base
+python src/embeddings/embedder.py
+
+### 3. Run Chatbot API
+uvicorn src.api.app:app --reload
+
+
+This starts the FastAPI server at http://127.0.0.1:8000.
+
+### 4. Run Web Interface
+streamlit run frontend/web/app.py
+
+### 📊 Example Query Flow
+
+Student asks in Hindi: "परीक्षा की तारीख कब है?"
+
+Bot detects language → translates → retrieves exam schedule.
+
+Answer generated in English → translated back to Hindi.
+
+If low confidence, bot triggers human handoff.
+
+
+## 🧪 Testing
+
+Run unit tests:
+
+```
+pytest tests/
+```
+
+## 🛠️ Tech Stack
+### 🛠️ Tech Stack
+
+**Backend**:
+* FastAPI
+* Python
+
+**Frontend**:
+* Streamlit / React.js (web)
+* Flutter (mobile)
+
+**NLP**:
+* Hugging Face Transformers
+* Sentence-Transformers
+
+**Vector DB**:
+* FAISS / Pinecone
+
+**LLM Integration**:
+* GPT / LLaMA 2 / Falcon
+
+**Deployment**:
+* Docker
+* Gunicorn
+* Nginx
+
+
+### 🤝 Contributing
+
+1.  **Fork** the repository.
+2.  Create a new branch (`feature/xyz`).
+3.  **Commit** your changes and **push** them to your branch.
+4.  Open a **Pull Request**.
+
+---
+
+### 📜 License
+
+This project is licensed under the **MIT License**—see the `LICENSE` file for details.
+
+---
+
+### 👨‍🎓 Author
+
+**Suman Giri** (Student, VIT Chennai)
+*Project Guide*: **M. Kaliyappan**
