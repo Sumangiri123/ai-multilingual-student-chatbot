@@ -82,31 +82,39 @@ venv\Scripts\activate      # Windows
 
 ### 1. Data Preparation
 
-Place institutional documents (PDFs, handbooks, policies) inside data/raw/.
+* Place institutional documents (PDFs, handbooks, policies) inside data/raw/.
 
-Run extraction + cleaning scripts (see notebooks/ or src/data_processing/).
+* Run extraction + cleaning scripts (see notebooks/ or src/data_processing/).
 
 ### 2. Build Knowledge Base
+
+```
 python src/embeddings/embedder.py
+```
 
 ### 3. Run Chatbot API
-uvicorn src.api.app:app --reload
 
+```
+uvicorn src.api.app:app --reload
+```
 
 This starts the FastAPI server at http://127.0.0.1:8000.
 
 ### 4. Run Web Interface
+
+```
 streamlit run frontend/web/app.py
+```
 
 ### 📊 Example Query Flow
 
-Student asks in Hindi: "परीक्षा की तारीख कब है?"
+#### 1. Student asks in Hindi: "परीक्षा की तारीख कब है?"
 
-Bot detects language → translates → retrieves exam schedule.
+#### 2. Bot detects language → translates → retrieves exam schedule.
 
-Answer generated in English → translated back to Hindi.
+#### 3. Answer generated in English → translated back to Hindi.
 
-If low confidence, bot triggers human handoff.
+#### 4. If low confidence, bot triggers human handoff.
 
 
 ## 🧪 Testing
